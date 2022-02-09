@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+option go_package = "github.com/gotbitoriginal/common/grpc";
+
+message Pair {
+    string base = 1;
+    string quote = 2;
+}
+
+message FeeRatios {
+    string maker = 1;
+    string taker = 2;
+}
+
+message Balance {
+    string free = 1;
+    string locked = 2;
+}
+
+message Offer {
+    string amount = 1;
+    string price = 2;
+}
+
+message Order {
+    string id = 1;
+    string side = 2;
+    Pair pair = 3;
+    string amount = 4;
+    string amountFilled = 5;
+    string price = 6;
+    string priceFillAgerage = 7;
+    string fee = 8;
+    string status = 9;
+    int64 time = 10;
+    bool fillOrKill = 11;
+}
+
+message Candle {
+    int64 time = 1;
+    string open = 2;
+    string close = 3;
+    string high = 4;
+    string low = 5;
+    string volume = 6;
+}
+
+message Trade {
+    int64 time = 1;
+    string side = 2;
+    string amount = 3;
+    string price = 4;
+}
+
+message Precision {
+    int32 Amount = 1;
+    int32 Price = 2;
+}
+
+message OrderBook {
+    repeated Offer Asks = 1;
+    repeated Offer Bids = 2;
+}
