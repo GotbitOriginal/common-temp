@@ -1,4 +1,4 @@
-module github.com/gotbitoriginal/common-temp
+module github.com/gotbitoriginal/commontemp
 
 go 1.17
 
