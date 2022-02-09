@@ -1,11 +1,11 @@
 package grpc
 
 import (
-	"github.com/gotbitoriginal/common"
+	"github.com/gotbitoriginal/commontemp"
 	"github.com/shopspring/decimal"
 )
 
-func (source *Offer) WriteTo(target *common.Offer) *common.Offer {
+func (source *Offer) WriteTo(target *commontemp.Offer) *commontemp.Offer {
 	if source == nil || target == nil {
 		return target
 	}
@@ -16,7 +16,7 @@ func (source *Offer) WriteTo(target *common.Offer) *common.Offer {
 	return target
 }
 
-func (target *Offer) ReadFrom(source *common.Offer) *Offer {
+func (target *Offer) ReadFrom(source *commontemp.Offer) *Offer {
 	if target == nil || source == nil {
 		return target
 	}

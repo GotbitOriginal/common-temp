@@ -1,19 +1,19 @@
 package grpc
 
-import "github.com/gotbitoriginal/common"
+import "github.com/gotbitoriginal/commontemp"
 
-func (source *Pair) WriteTo(target *common.Pair) *common.Pair {
+func (source *Pair) WriteTo(target *commontemp.Pair) *commontemp.Pair {
 	if source == nil || target == nil {
 		return target
 	}
 
-	target.Base = common.Currency(source.Base)
-	target.Quote = common.Currency(source.Quote)
+	target.Base = commontemp.Currency(source.Base)
+	target.Quote = commontemp.Currency(source.Quote)
 
 	return target
 }
 
-func (target *Pair) ReadFrom(source *common.Pair) *Pair {
+func (target *Pair) ReadFrom(source *commontemp.Pair) *Pair {
 	if source == nil || target == nil {
 		return target
 	}

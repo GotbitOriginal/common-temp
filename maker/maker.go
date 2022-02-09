@@ -3,7 +3,7 @@ package apimaker
 import (
 	"errors"
 
-	"github.com/gotbitoriginal/common"
+	"github.com/gotbitoriginal/commontemp"
 )
 
 var (
@@ -12,24 +12,24 @@ var (
 )
 
 type Maker interface {
-	Add(factory common.APIClientFactory) (id string, err error)
-	New(clientID string, options ...common.Option) (common.APIClientBase, error)
+	Add(factory commontemp.APIClientFactory) (id string, err error)
+	New(clientID string, options ...commontemp.Option) (commontemp.APIClientBase, error)
 	GetIDs() []string
 }
 
 func NewMaker() Maker {
 	return &maker{
-		factories: make(map[string]common.APIClientFactory),
+		factories: make(map[string]commontemp.APIClientFactory),
 	}
 }
 
 var _ Maker = (*maker)(nil)
 
 type maker struct {
-	factories map[string]common.APIClientFactory
+	factories map[string]commontemp.APIClientFactory
 }
 
-func (m *maker) Add(factory common.APIClientFactory) (id string, err error) {
+func (m *maker) Add(factory commontemp.APIClientFactory) (id string, err error) {
 	client := factory()
 
 	id = client.GetClientID()
@@ -41,7 +41,7 @@ func (m *maker) Add(factory common.APIClientFactory) (id string, err error) {
 	return id, nil
 }
 
-func (m *maker) New(clientID string, options ...common.Option) (common.APIClientBase, error) {
+func (m *maker) New(clientID string, options ...commontemp.Option) (commontemp.APIClientBase, error) {
 	factory, ok := m.factories[clientID]
 	if !ok {
 		return nil, ErrNotFound

@@ -1,11 +1,11 @@
 package grpc
 
 import (
-	"github.com/gotbitoriginal/common"
+	"github.com/gotbitoriginal/commontemp"
 	"github.com/shopspring/decimal"
 )
 
-func (source *FeeRatios) WriteTo(target *common.FeeRatios) *common.FeeRatios {
+func (source *FeeRatios) WriteTo(target *commontemp.FeeRatios) *commontemp.FeeRatios {
 	if source == nil || target == nil {
 		return target
 	}
@@ -16,7 +16,7 @@ func (source *FeeRatios) WriteTo(target *common.FeeRatios) *common.FeeRatios {
 	return target
 }
 
-func (target *FeeRatios) ReadFrom(source *common.FeeRatios) *FeeRatios {
+func (target *FeeRatios) ReadFrom(source *commontemp.FeeRatios) *FeeRatios {
 	if target == nil || source == nil {
 		return target
 	}

@@ -3,11 +3,11 @@ package grpc
 import (
 	"time"
 
-	"github.com/gotbitoriginal/common"
+	"github.com/gotbitoriginal/commontemp"
 	"github.com/shopspring/decimal"
 )
 
-func (source *Candle) WriteTo(target *common.Candle) *common.Candle {
+func (source *Candle) WriteTo(target *commontemp.Candle) *commontemp.Candle {
 	if source == nil || target == nil {
 		return target
 	}
@@ -22,7 +22,7 @@ func (source *Candle) WriteTo(target *common.Candle) *common.Candle {
 	return target
 }
 
-func (target *Candle) ReadFrom(source *common.Candle) *Candle {
+func (target *Candle) ReadFrom(source *commontemp.Candle) *Candle {
 	if source == nil || target == nil {
 		return target
 	}

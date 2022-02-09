@@ -3,31 +3,31 @@ package grpc
 import (
 	"time"
 
-	"github.com/gotbitoriginal/common"
+	"github.com/gotbitoriginal/commontemp"
 	"github.com/shopspring/decimal"
 )
 
-func (source *Order) WriteTo(target *common.Order) *common.Order {
+func (source *Order) WriteTo(target *commontemp.Order) *commontemp.Order {
 	if source == nil || target == nil {
 		return target
 	}
 
-	target.ID = common.OrderID(source.Id)
-	target.Side = common.Side(source.Side)
+	target.ID = commontemp.OrderID(source.Id)
+	target.Side = commontemp.Side(source.Side)
 	source.Pair.WriteTo(&target.Pair)
 	target.Amount, _ = decimal.NewFromString(source.Amount)
 	target.AmountFilled, _ = decimal.NewFromString(source.AmountFilled)
 	target.Price, _ = decimal.NewFromString(source.Price)
 	target.PriceFillAgerage, _ = decimal.NewFromString(source.PriceFillAgerage)
 	target.Fee, _ = decimal.NewFromString(source.Fee)
-	target.Status = common.Status(source.Status)
+	target.Status = commontemp.Status(source.Status)
 	target.Time = time.Unix(source.Time, 0)
 	target.FillOrKill = source.FillOrKill
 
 	return target
 }
 
-func (target *Order) ReadFrom(source *common.Order) *Order {
+func (target *Order) ReadFrom(source *commontemp.Order) *Order {
 	if source == nil || target == nil {
 		return target
 	}

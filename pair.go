@@ -1,4 +1,4 @@
-package common
+package commontemp
 
 type Pair struct {
 	Base  Currency `json:"base"`

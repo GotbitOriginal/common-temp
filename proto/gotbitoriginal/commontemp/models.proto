@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "github.com/gotbitoriginal/common/grpc";
+option go_package = "github.com/gotbitoriginal/commontemp/grpc";
 
 message Pair {
     string base = 1;

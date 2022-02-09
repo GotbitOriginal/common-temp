@@ -1,20 +1,20 @@
 package grpc
 
 import (
-	"github.com/gotbitoriginal/common"
+	"github.com/gotbitoriginal/commontemp"
 )
 
-func (source *OrderBook) WriteTo(target *common.OrderBook) *common.OrderBook {
+func (source *OrderBook) WriteTo(target *commontemp.OrderBook) *commontemp.OrderBook {
 	if source == nil || target == nil {
 		return target
 	}
 
-	target.Asks = make([]common.Offer, len(source.Asks))
+	target.Asks = make([]commontemp.Offer, len(source.Asks))
 	for i, ask := range source.Asks {
 		ask.WriteTo(&target.Asks[i])
 	}
 
-	target.Bids = make([]common.Offer, len(source.Bids))
+	target.Bids = make([]commontemp.Offer, len(source.Bids))
 	for i, bid := range source.Bids {
 		bid.WriteTo(&target.Bids[i])
 	}
@@ -22,7 +22,7 @@ func (source *OrderBook) WriteTo(target *common.OrderBook) *common.OrderBook {
 	return target
 }
 
-func (target *OrderBook) ReadFrom(source *common.OrderBook) *OrderBook {
+func (target *OrderBook) ReadFrom(source *commontemp.OrderBook) *OrderBook {
 	if source == nil || target == nil {
 		return target
 	}

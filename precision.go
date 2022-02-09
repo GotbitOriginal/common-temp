@@ -1,4 +1,4 @@
-package common
+package commontemp
 
 type Precision struct {
 	Amount int32 `json:"amount"`

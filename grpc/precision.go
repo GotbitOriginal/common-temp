@@ -1,8 +1,8 @@
 package grpc
 
-import "github.com/gotbitoriginal/common"
+import "github.com/gotbitoriginal/commontemp"
 
-func (source *Precision) WriteTo(target *common.Precision) *common.Precision {
+func (source *Precision) WriteTo(target *commontemp.Precision) *commontemp.Precision {
 	if source == nil || target == nil {
 		return target
 	}
@@ -13,7 +13,7 @@ func (source *Precision) WriteTo(target *common.Precision) *common.Precision {
 	return target
 }
 
-func (target *Precision) ReadFrom(source *common.Precision) *Precision {
+func (target *Precision) ReadFrom(source *commontemp.Precision) *Precision {
 	if source == nil || target == nil {
 		return target
 	}

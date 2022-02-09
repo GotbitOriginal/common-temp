@@ -3,24 +3,24 @@ package grpc
 import (
 	"time"
 
-	"github.com/gotbitoriginal/common"
+	"github.com/gotbitoriginal/commontemp"
 	"github.com/shopspring/decimal"
 )
 
-func (source *Trade) WriteTo(target *common.Trade) *common.Trade {
+func (source *Trade) WriteTo(target *commontemp.Trade) *commontemp.Trade {
 	if source == nil || target == nil {
 		return target
 	}
 
 	target.Time = time.Unix(source.Time, 0)
-	target.Side = common.Side(source.Side)
+	target.Side = commontemp.Side(source.Side)
 	target.Amount, _ = decimal.NewFromString(source.Amount)
 	target.Price, _ = decimal.NewFromString(source.Price)
 
 	return target
 }
 
-func (target *Trade) ReadFrom(source *common.Trade) *Trade {
+func (target *Trade) ReadFrom(source *commontemp.Trade) *Trade {
 	if source == nil || target == nil {
 		return target
 	}
